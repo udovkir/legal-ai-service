@@ -14,9 +14,9 @@ RUN apk add --no-cache \
     pangomm-dev \
     libjpeg-turbo-dev \
     freetype-dev \
-    tesseract \
-    tesseract-data-rus \
-    tesseract-data-eng
+    tesseract-ocr \
+    tesseract-ocr-data-rus \
+    tesseract-ocr-data-eng
 
 # Создание рабочей директории
 WORKDIR /app
