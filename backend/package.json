@@ -20,7 +20,7 @@
     "bcryptjs": "^2.4.3",
     "jsonwebtoken": "^9.0.2",
     "pg": "^8.11.3",
-    "pgvector": "^0.2.4",
+    "pgvector": "0.2.3",
     "redis": "^4.6.10",
     "multer": "^1.4.5-lts.1",
     "aws-sdk": "^2.1490.0",

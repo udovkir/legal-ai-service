@@ -21,11 +21,11 @@ RUN apk add --no-cache \
 # Создание рабочей директории
 WORKDIR /app
 
-# Копирование package.json и package-lock.json
-COPY package*.json ./
+# Копирование package.json
+COPY package.json ./
 
 # Установка зависимостей
-RUN npm ci --only=production
+RUN npm install --omit=dev --no-package-lock
 
 # Копирование исходного кода
 COPY . .
