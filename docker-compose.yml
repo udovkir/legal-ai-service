@@ -7,8 +7,6 @@ services:
       POSTGRES_DB: legal_ai_db
       POSTGRES_USER: legal_user
       POSTGRES_PASSWORD: legal_password
-    ports:
-      - "5432:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
       - ./database/init.sql:/docker-entrypoint-initdb.d/init.sql
@@ -37,8 +35,6 @@ services:
       - AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
       - AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
       - AWS_S3_BUCKET=${AWS_S3_BUCKET}
-    ports:
-      - "3001:3001"
     depends_on:
       - postgres
       - redis
@@ -55,10 +51,8 @@ services:
       dockerfile: Dockerfile
     container_name: legal_ai_frontend
     environment:
-      - REACT_APP_API_URL=http://localhost:3001
-      - REACT_APP_WS_URL=ws://localhost:3001
-    ports:
-      - "3000:80"
+      - REACT_APP_API_URL=https://gptlawyer.ru
+      - REACT_APP_WS_URL=wss://gptlawyer.ru
     depends_on:
       - backend
     networks:
@@ -83,8 +77,6 @@ services:
       - DB_POSTGRESDB_DATABASE=legal_ai_db
       - DB_POSTGRESDB_USER=legal_user
       - DB_POSTGRESDB_PASSWORD=legal_password
-    ports:
-      - "5678:5678"
     depends_on:
       - postgres
     networks:
