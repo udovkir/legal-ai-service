@@ -16,7 +16,7 @@ echo "[3/4] Выпускаю сертификаты для: ${DOMAINS_MAIN[*]} .
 docker compose run --rm certbot certonly \
   --webroot -w /var/www/certbot \
   --agree-tos -m "$EMAIL" --non-interactive \
-  $(printf -- '-d %s ' "${DOMAINS_MAIN[@]}')
+  $(printf -- '-d %s ' "${DOMAINS_MAIN[@]}")
 
 echo "[4/4] Выпускаю сертификаты для: ${DOMAINS_N8N[*]} ..."
 docker compose run --rm certbot certonly \
@@ -24,9 +24,7 @@ docker compose run --rm certbot certonly \
   --agree-tos -m "$EMAIL" --non-interactive \
   $(printf -- '-d %s ' "${DOMAINS_N8N[@]}")
 
-echo "[4/4] Перезапускаю nginx..."
+echo "[5/4] Перезапускаю nginx..."
 docker compose restart nginx
 
 echo "Готово. Проверьте: https://gptlawyer.ru и https://n8n.gptlawyer.ru"
-
-
