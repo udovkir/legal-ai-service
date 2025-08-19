@@ -5,10 +5,10 @@ declare global {
     SpeechRecognition?: any;
     webkitSpeechRecognition?: any;
   }
-}
 
-// Basic alias so usages like `useState<SpeechRecognition | null>` compile
-type SpeechRecognition = any;
+  // Make the alias global so generic annotations compile
+  type SpeechRecognition = any;
+}
 
 export {};
 
