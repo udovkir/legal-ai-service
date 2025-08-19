@@ -2,7 +2,7 @@
 set -euo pipefail
 
 echo "[renew] Запускаю certbot renew..."
-docker compose run --rm certbot certbot renew --webroot -w /var/www/certbot
+docker compose run --rm certbot renew --webroot -w /var/www/certbot
 
 echo "[renew] Перезапускаю nginx..."
 docker compose restart nginx
