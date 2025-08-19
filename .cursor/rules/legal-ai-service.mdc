@@ -1,0 +1,28 @@
+description: Project Rules for legal-ai-service
+globs:
+  - "**/*"
+alwaysApply: true
+content: |
+  // Project Rules for legal-ai-service
+
+  ### Tech Stack & Architecture
+  - This is a full-stack "Legal AI Assistant" project.
+  - Backend: NestJS framework running on Node.js inside Docker.
+  - Frontend: React application, likely with TypeScript.
+  - Database: PostgreSQL. Use the Prisma ORM for database interactions (check for schema.prisma).
+  - Other services: n8n for automation, Redis for caching, NGINX as a reverse proxy.
+  - The entire project is containerized with Docker. Always consider Docker environment when suggesting commands.
+
+  ### Project Structure & Conventions
+  - The root is a monorepo with `/backend` and `/frontend` directories.
+  - Always check the docker-compose.yml file to understand service names and dependencies.
+  - For backend: follow NestJS module structure (controllers, services, modules).
+  - For database: all changes must be made via Prisma migrations. Never suggest raw SQL for schema changes.
+
+  ### Key Domain Concepts
+  - Main entities likely include: Legal Documents, Cases, Users, Contracts.
+  - The AI probably processes legal text, so suggestions related to NLP are welcome.
+
+  ### Communication
+  - When suggesting Docker commands, use 'docker compose' (with a space) as in the project, not 'docker-compose'.
+  - When explaining how to fix something, first check if the solution requires a Docker command (e.g., rebuilding a container).
