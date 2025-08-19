@@ -6,8 +6,10 @@ WORKDIR /app
 # Copy package files
 COPY package.json ./
 
-# Install dependencies (resolve peer deps issues for react-scripts)
-RUN npm install --omit=dev --no-package-lock --legacy-peer-deps
+# Install dependencies (resolve peer deps issues for react-scripts and ajv-keywords)
+RUN npm install --omit=dev --no-package-lock --legacy-peer-deps && \
+    npm ls ajv || npm install ajv@^6.12.6 --no-package-lock && \
+    npm ls ajv-keywords || npm install ajv-keywords@^3.5.2 --no-package-lock
 
 # Copy source code
 COPY . .
