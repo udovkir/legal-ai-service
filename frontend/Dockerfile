@@ -6,8 +6,8 @@ WORKDIR /app
 # Copy package files
 COPY package.json ./
 
-# Install dependencies
-RUN npm install --omit=dev --no-package-lock
+# Install dependencies (resolve peer deps issues for react-scripts)
+RUN npm install --omit=dev --no-package-lock --legacy-peer-deps
 
 # Copy source code
 COPY . .
