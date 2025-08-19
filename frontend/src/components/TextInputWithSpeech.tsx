@@ -39,7 +39,7 @@ const TextInputWithSpeech: React.FC<TextInputWithSpeechProps> = ({
         setTranscript('');
       };
 
-      recognitionInstance.onresult = (event) => {
+      recognitionInstance.onresult = (event: any) => {
         let finalTranscript = '';
         let interimTranscript = '';
 
@@ -55,7 +55,7 @@ const TextInputWithSpeech: React.FC<TextInputWithSpeechProps> = ({
         setTranscript(finalTranscript + interimTranscript);
       };
 
-      recognitionInstance.onerror = (event) => {
+      recognitionInstance.onerror = (event: any) => {
         console.error('Speech recognition error:', event.error);
         setIsRecording(false);
         setIsListening(false);
