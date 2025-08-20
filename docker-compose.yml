@@ -26,6 +26,7 @@ services:
       context: ./backend
       dockerfile: Dockerfile
     container_name: legal_ai_backend
+    user: "0:0"
     environment:
       - NODE_ENV=production
       - DATABASE_URL=postgresql://legal_user:legal_password@postgres:5432/legal_ai_db
