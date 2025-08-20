@@ -13,7 +13,7 @@ const authMiddleware = require('./middleware/auth');
 const errorHandler = require('./middleware/errorHandler');
 
 // Routes
-// const authRoutes = require('./routes/auth');
+const authRoutes = require('./routes/auth');
 // const queryRoutes = require('./routes/queries');
 // const responseRoutes = require('./routes/responses');
 // const fileRoutes = require('./routes/files');
@@ -68,7 +68,7 @@ app.get('/health', (req, res) => {
 });
 
 // API Routes
-// app.use('/api/auth', authRoutes);
+app.use('/api/auth', authRoutes);
 // app.use('/api/queries', authMiddleware, queryRoutes);
 // app.use('/api/responses', authMiddleware, responseRoutes);
 // app.use('/api/files', authMiddleware, fileRoutes);
