@@ -67,13 +67,13 @@ app.get('/health', (req, res) => {
   });
 });
 
-// API Routes
-app.use('/api/auth', authRoutes);
-app.use('/api/queries', authMiddleware, queryRoutes);
-app.use('/api/responses', authMiddleware, responseRoutes);
-app.use('/api/files', authMiddleware, fileRoutes);
-app.use('/api/users', authMiddleware, userRoutes);
-app.use('/api/webhooks', webhookRoutes);
+// API Routes - временно закомментировано для отладки
+// app.use('/api/auth', authRoutes);
+// app.use('/api/queries', authMiddleware, queryRoutes);
+// app.use('/api/responses', authMiddleware, responseRoutes);
+// app.use('/api/files', authMiddleware, fileRoutes);
+// app.use('/api/users', authMiddleware, userRoutes);
+// app.use('/api/webhooks', webhookRoutes);
 
 // Socket.IO connection handling
 io.on('connection', (socket) => {
