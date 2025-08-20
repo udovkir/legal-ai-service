@@ -27,18 +27,16 @@ COPY package.json ./
 # Установка зависимостей
 RUN npm install --omit=dev --no-package-lock
 
-# Копирование исходного кода
-COPY . .
-
-# Создание директории для логов
-RUN mkdir -p logs
-
 # Создание пользователя для безопасности
 RUN addgroup -g 1001 -S nodejs
 RUN adduser -S nodejs -u 1001
 
-# Изменение владельца файлов
-RUN chown -R nodejs:nodejs /app
+# Копирование исходного кода
+COPY . .
+
+# Создание директории для логов и изменение владельца
+RUN mkdir -p logs && chown -R nodejs:nodejs /app
+
 USER nodejs
 
 # Открытие порта
